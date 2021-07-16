@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "nodemon server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js"
+    "start:prod": "NODE_ENV=production nodemon server.js",
+    "build": "parcel build ./public/js/index.js --dist-dir ./public/js/bundled"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "mongoose": "^5.13.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "parcel": "^2.0.0-beta.3.1",
     "path": "^0.12.7",
     "slugify": "^1.6.0"
   },
@@ -44,5 +46,8 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.2"
+  },
+  "targets": {
+    "main": false
   }
 }

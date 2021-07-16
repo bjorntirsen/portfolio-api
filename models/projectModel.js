@@ -9,44 +9,25 @@ const projectSchema = new mongoose.Schema({
     trim: true,
     maxlength: [
       40,
-      'A project title must have less or equal then 40 characters',
+      'A project title must have less or equal than 40 characters',
     ],
-    minlength: [
-      10,
-      'A project title must have more or equal then 10 characters',
-    ],
+    minlength: [5, 'A project title must have more or equal than 5 characters'],
   },
   subtitle: {
     type: String,
     trim: true,
-    maxlength: [
-      40,
-      'A project subtitle must have less or equal then 40 characters',
-    ],
-    minlength: [
-      10,
-      'A project subtitle must have more or equal then 10 characters',
-    ],
   },
   description: {
     type: String,
     trim: true,
-    maxlength: [
-      40,
-      'A project description must have less or equal then 40 characters',
-    ],
-    minlength: [
-      10,
-      'A project description must have more or equal then 10 characters',
-    ],
   },
   dateFirstCompleted: {
     type: Date,
     required: [true, 'A project must have a date when it was first completed!'],
   },
-  imageCover: {
+  image: {
     type: String,
-    required: [true, 'A project must have a cover image'],
+    default: 'default.jpg',
   },
   siteLink: {
     type: String,
@@ -73,7 +54,7 @@ projectSchema.index({ slug: 1 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()
 projectSchema.pre('save', function (next) {
-  this.slug = slugify(this.name, { lower: true });
+  this.slug = slugify(this.title, { lower: true });
   next();
 });
 
