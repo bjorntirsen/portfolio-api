@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const sendProjectData = async (data) => {
   try {
-    const url = '/api/v1/createProject';
+    const url = '/api/v1/projects';
 
     const res = await axios({
       method: 'POST',

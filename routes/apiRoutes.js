@@ -3,6 +3,9 @@ const apiController = require('../controllers/apiController');
 
 const router = express.Router();
 
-router.post('/createProject', apiController.createProject);
+router
+  .route('/projects')
+  .get(apiController.getAllProjects)
+  .post(apiController.createProject);
 
 module.exports = router;

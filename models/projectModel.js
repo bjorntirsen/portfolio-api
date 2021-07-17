@@ -54,7 +54,7 @@ projectSchema.index({ slug: 1 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()
 projectSchema.pre('save', function (next) {
-  this.slug = slugify(this.title, { lower: true });
+  this.slug = slugify(this.title, { lower: true, strict: true });
   next();
 });
 
