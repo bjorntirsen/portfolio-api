@@ -1,7 +1,7 @@
 <section><%- include ('./partials/projectForm') %></section>
-<section>
-  <% if (projects) { %>
+<% if (projects) { %>
+  <section class="row mx-auto">
     <%- include ('./partials/projectCards') %>
-  <% } %>
-</section>
+  </section>
+<% } %>
 <script src="/js/bundled/index.js"></script>

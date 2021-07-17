@@ -1,28 +1,32 @@
 <% projects.forEach((project) => { %>
-  <div class="card" style="width: 18rem">
-    <img
-      src="/public/img/<%= project.image %>"
-      class="card-img-top"
-      alt="<%= project.title %>"
-    />
-    <div class="card-header"><%= project.dateFirstCompleted %></div>
-    <div class="card-body">
-      <h5 class="card-title text-uppercase"><%= project.title %></h5>
-      <h6 class="card-title text-uppercase"><%= project.subtitle %></h6>
-      <% if (project.description) { %>
-      <p class="card-text"><%= project.description %></p>
-      <% } %>
-      <% if (project.siteLink) { %>
-      <a href="<%= project.siteLink %>" class="btn btn-primary">Link To Site</a>
-      <% } %>
-      <% if (project.techniquesUsed) { %> 
-        <%- include ('./techniquesUsedModal', {project}) %> 
-      <% } %>
-      <% if (project.GithubRepo) { %>
-        <a href="<%= project.GithubRepo %>" class="btn btn-secondary"
-        >GitHub Repository</a
-      >
-      <% } %>
+  <div class="col-xl-3 col-lg-4 col-md-6">
+    <div class="card">
+      <div class="card-header text-center">
+        <%= project.dateFirstCompleted.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'}) %>
+      </div>
+      <img
+        src="/img/<%= project.image %>"
+        class="card-img-top"
+        alt="<%= project.title %>"
+      />
+      <div class="card-body">
+        <h5 class="card-title text-uppercase"><%= project.title %></h5>
+        <h6 class="card-title text-uppercase"><%= project.subtitle %></h6>
+        <% if (project.description) { %>
+        <p class="card-text"><%= project.description %></p>
+        <% } %>
+        <% if (project.siteLink) { %>
+        <a href="<%= project.siteLink %>" class="btn btn-primary">Link To Site</a>
+        <% } %>
+        <% if (project.techniquesUsed) { %> 
+          <%- include ('./techniquesUsedModal', {project}) %> 
+        <% } %>
+        <% if (project.GithubRepo) { %>
+          <a href="<%= project.GithubRepo %>" class="btn btn-secondary"
+          >GitHub Repository</a
+        >
+        <% } %>
+      </div>
     </div>
   </div>
 <% }) %>
