@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#<%= project.slug %>Modal"> Techniques Used </button>
+<div
+  class="modal fade"
+  id="<%= project.slug %>Modal"
+  tabindex="-1"
+  aria-labelledby="<%= project.slug %>ModalLabel"
+  aria-hidden="true"
+  style="display: none"
+>
+  <div class="modal-dialog">
+    <div class="bg-light modal-content">
+      <div class="modal-header">
+        <h5
+          class="font-weight-bold modal-title text-uppercase"
+          id="<%= project.slug %>ModalLabel"
+        >
+        <%= project.title %> - Techniques used
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="align-items-center d-flex flex-column modal-body">
+        <p class="text-center">
+          <%= project.techniquesUsed %>
+        </p>
+      </div>
+      <div class="d-flex justify-content-center modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
