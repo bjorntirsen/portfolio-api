@@ -1,0 +1,30 @@
+<div class="col-md-6 mx-auto">
+  <div class="card my-2">
+    <div class="card-header text-center">
+      <%= project.dateFirstCompleted.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'}) %>
+    </div>
+    <img
+      src="/img/<%= project.image %>"
+      class="card-img-top"
+      alt="<%= project.title %>"
+    />
+    <div class="card-body">
+      <h5 class="card-title text-uppercase"><%= project.title %></h5>
+      <h6 class="card-title text-uppercase"><%= project.subtitle %></h6>
+      <% if (project.description) { %>
+      <p class="card-text"><%= project.description %></p>
+      <% } %>
+      <% if (project.techniquesUsed) { %> 
+        <p><%= project.techniquesUsed %> </p> 
+      <% } %>
+      <% if (project.siteLink) { %>
+      <a href="<%= project.siteLink %>" class="btn btn-primary m-1">Link To Site</a>
+      <% } %>
+      <% if (project.githubRepo) { %>
+        <a href="<%= project.githubRepo %>" class="btn btn-secondary m-1">
+          GitHub Repo
+        </a>
+      <% } %>
+    </div>
+  </div>
+</div>

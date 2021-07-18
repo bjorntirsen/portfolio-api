@@ -8,4 +8,10 @@ router
   .get(apiController.getAllProjects)
   .post(apiController.createProject);
 
+router
+  .route('/projects/:id')
+  .get(apiController.getProject)
+  .patch(apiController.createProject)
+  .delete(apiController.deleteProject);
+
 module.exports = router;

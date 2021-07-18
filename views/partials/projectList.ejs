@@ -1,0 +1,19 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-10">
+      <table class="table">
+          <thead>
+              <tr>
+                <th scope='col'>Name</th>
+                <th scope='col'>First Completed</th>
+                <th scope='col'>Edit</th>
+                <th scope='col'>Delete</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% projects.forEach(project => { %>
+              <%- include ('./projectListRow', {project}) %>
+            <% }) %>
+          </tbody>
+        </table>
+    </div>
+</div>

@@ -10,13 +10,15 @@ router.use(authController.isLoggedIn);
 
 router.get('/', viewsController.renderIndex);
 router.get('/list', viewsController.renderList);
+router.get('/projects/:id', viewsController.renderProjectDetails);
 
 router
   .route('/login')
   .get(viewsController.renderLogin)
   .post(authController.login);
 
-router.get('/', viewsController.renderIndex);
-router.get('/admin', viewsController.renderAdmin);
+router.use(authController.protect);
+router.get('/adminIndex', viewsController.renderAdmin);
+router.get('/create', viewsController.renderCreate);
 
 module.exports = router;
