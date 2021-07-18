@@ -37,7 +37,7 @@ const projectSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  GithubRepo: {
+  githubRepo: {
     type: String,
     trim: true,
   },
