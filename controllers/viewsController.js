@@ -3,8 +3,12 @@ const catchAsync = require('../utils/catchAsync');
 const Project = require('../models/projectModel');
 
 exports.renderIndex = catchAsync(async (req, res) => {
+  res.render('index', { title: 'Landing Page' });
+});
+
+exports.renderList = catchAsync(async (req, res) => {
   const projects = await Project.find().sort('-dateFirstCompleted');
-  res.render('index', { title: 'Landing Page', projects });
+  res.render('list', { title: 'All Projects', projects });
 });
 
 exports.renderLogin = catchAsync(async (req, res) => {

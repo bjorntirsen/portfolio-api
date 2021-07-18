@@ -1,14 +1,15 @@
 /* eslint-disable */
 import axios from 'axios';
 
-import { login, logout } from './login';
-import { showAlert } from './alerts';
+import { login } from './login';
+import { showAlert, hideAlert } from './alerts';
 import { sendProjectData } from './sendProjectData';
+
+window.setTimeout(hideAlert, 3000);
 
 // DOM elements
 const projectDataForm = document.querySelector('.form-project-data');
 const loginForm = document.querySelector('.form-login');
-const logOutBtn = document.querySelector('.nav__el--logout');
 
 // DELEGATION
 if (projectDataForm)
@@ -44,4 +45,10 @@ if (loginForm)
     login(email, password);
   });
 
-if (logOutBtn) logOutBtn.addEventListener('click', logout);
+//Highlight the active page in nav
+urlArray = window.location.href.split('/');
+const currentPage = urlArray[urlArray.length - 1];
+if (currentPage) {
+  const currentLink = document.getElementById(currentPage);
+  if (currentLink) currentLink.className += ' active text-decoration-underline';
+}

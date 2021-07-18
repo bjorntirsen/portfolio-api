@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const expressEjsLayout = require('express-ejs-layouts');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -31,6 +32,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(cookieParser());
 
 //Routes
 app.use('/', viewRouter);

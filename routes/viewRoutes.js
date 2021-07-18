@@ -4,7 +4,12 @@ const authController = require('../controllers/authController');
 
 const router = express.Router();
 
+router.get('/logout', authController.logout);
+
+router.use(authController.isLoggedIn);
+
 router.get('/', viewsController.renderIndex);
+router.get('/list', viewsController.renderList);
 
 router
   .route('/login')
