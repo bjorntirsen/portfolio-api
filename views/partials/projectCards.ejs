@@ -16,14 +16,14 @@
         <p class="card-text"><%= project.description %></p>
         <% } %>
         <% if (project.siteLink) { %>
-        <a href="<%= project.siteLink %>" class="btn btn-primary">Link To Site</a>
+        <a href="<%= project.siteLink %>" class="btn btn-primary m-1">Link To Site</a>
         <% } %>
         <% if (project.techniquesUsed) { %> 
           <%- include ('./techniquesUsedModal', {project}) %> 
         <% } %>
-        <% if (project.GithubRepo) { %>
-          <a href="<%= project.GithubRepo %>" class="btn btn-secondary"
-          >GitHub Repository</a
+        <% if (project.githubRepo) { %>
+          <a href="<%= project.githubRepo %>" class="btn btn-secondary m-1"
+          >GitHub Repo</a
         >
         <% } %>
       </div>
