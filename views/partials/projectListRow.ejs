@@ -4,9 +4,9 @@
     <%= project.dateFirstCompleted.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'}) %>
   </td>
   <td>
-    <a href="#" class="btn btn-sm btn-outline-primary" role="button">Edit</a>
+    <a href="/update/<%= project._id %>" class="btn btn-sm btn-outline-primary" role="button">Edit</a>
   </td>
   <td>
-    <a href="#" class="btn btn-sm btn-outline-danger" role="button">Delete</a>
+    <a href="/delete/<%= project._id %>" class="btn btn-sm btn-outline-danger" role="button">Delete</a>
   </td>
 </tr>

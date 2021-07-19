@@ -17,8 +17,11 @@ router
   .get(viewsController.renderLogin)
   .post(authController.login);
 
+// ADMIN ROUTES
 router.use(authController.protect);
 router.get('/adminIndex', viewsController.renderAdmin);
 router.get('/create', viewsController.renderCreate);
+router.get('/update/:id', viewsController.renderUpdate);
+router.get('/delete/:id', viewsController.renderUpdate);
 
 module.exports = router;

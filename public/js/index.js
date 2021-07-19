@@ -3,38 +3,31 @@ import axios from 'axios';
 
 import { login } from './login';
 import { showAlert, hideAlert } from './alerts';
-import { sendProjectData } from './sendProjectData';
+import { getProjectData } from './getProjectData';
+import { sendProjectData, updateProjectData } from './sendProjectData';
 
 window.setTimeout(hideAlert, 3000);
 
 // DOM elements
 const projectDataForm = document.querySelector('.form-project-data');
+const projectDataFormUpdate = document.querySelector(
+  '.form-project-data-update'
+);
 const loginForm = document.querySelector('.form-login');
 
 // DELEGATION
 if (projectDataForm)
   projectDataForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const title = document.getElementById('title').value;
-    const subtitle = document.getElementById('subtitle').value;
-    const description = document.getElementById('description').value;
-    const dateFirstCompleted =
-      document.getElementById('dateFirstCompleted').value;
-    const siteLink = document.getElementById('siteLink').value;
-    const techniquesUsed = document.getElementById('techniquesUsed').value;
-    const githubRepo = document.getElementById('githubRepo').value;
-
-    const data = {
-      title,
-      subtitle,
-      description,
-      dateFirstCompleted,
-      siteLink,
-      techniquesUsed,
-      githubRepo,
-    };
-
+    data = getProjectData();
     sendProjectData(data);
+  });
+
+if (projectDataFormUpdate)
+  projectDataFormUpdate.addEventListener('submit', (e) => {
+    e.preventDefault();
+    data = getProjectData();
+    updateProjectData(data);
   });
 
 if (loginForm)
