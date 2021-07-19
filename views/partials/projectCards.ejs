@@ -1,5 +1,5 @@
 <% projects.forEach((project) => { %>
-  <div class="col-xl-3 col-lg-4 col-md-6">
+  <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
     <div class="card my-2">
       <div class="card-header text-center">
         <%= project.dateFirstCompleted.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'}) %>
@@ -9,12 +9,14 @@
         class="card-img-top"
         alt="<%= project.title %>"
       />
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title text-uppercase"><%= project.title %></h5>
         <h6 class="card-title text-uppercase"><%= project.subtitle %></h6>
         <% if (project.description) { %>
         <p class="card-text"><%= project.description %></p>
         <% } %>
+      </div>
+      <div class="card-body text-center">
         <% if (project.siteLink) { %>
         <a href="<%= project.siteLink %>" class="btn btn-primary m-1">Link To Site</a>
         <% } %>
