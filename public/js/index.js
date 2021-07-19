@@ -4,7 +4,11 @@ import axios from 'axios';
 import { login } from './login';
 import { showAlert, hideAlert } from './alerts';
 import { getProjectData } from './getProjectData';
-import { sendProjectData, updateProjectData } from './sendProjectData';
+import {
+  sendProjectData,
+  updateProjectData,
+  deleteProject,
+} from './sendProjectData';
 
 window.setTimeout(hideAlert, 3000);
 
@@ -14,8 +18,10 @@ const projectDataFormUpdate = document.querySelector(
   '.form-project-data-update'
 );
 const loginForm = document.querySelector('.form-login');
+const deleteBtn = document.getElementById('deleteBtn');
 
 // DELEGATION
+// 1) Create
 if (projectDataForm)
   projectDataForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -23,11 +29,20 @@ if (projectDataForm)
     sendProjectData(data);
   });
 
+// 2) Update
 if (projectDataFormUpdate)
   projectDataFormUpdate.addEventListener('submit', (e) => {
     e.preventDefault();
     data = getProjectData();
     updateProjectData(data);
+  });
+
+// 3) Delete
+if (deleteBtn)
+  deleteBtn.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { projectId } = e.target.dataset;
+    deleteProject(projectId);
   });
 
 if (loginForm)

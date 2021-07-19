@@ -38,3 +38,20 @@ export const updateProjectData = async (data) => {
     console.error('error', err);
   }
 };
+
+export const deleteProject = async (id) => {
+  try {
+    const url = `/api/v1/projects/${id}`;
+
+    await axios({
+      method: 'DELETE',
+      url,
+    });
+
+    showAlert('success', 'Sucessfully deleted project!');
+    const el = document.getElementById(`row${id}`);
+    if (el) el.parentElement.removeChild(el);
+  } catch (err) {
+    console.error('error', err);
+  }
+};

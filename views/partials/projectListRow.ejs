@@ -1,4 +1,4 @@
-<tr>
+<tr id="row<%= project._id %>">
   <th scope="row"><%= project.title %></th>
   <td>
     <%= project.dateFirstCompleted.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'}) %>
@@ -7,6 +7,6 @@
     <a href="/update/<%= project._id %>" class="btn btn-sm btn-outline-primary" role="button">Edit</a>
   </td>
   <td>
-    <a href="/delete/<%= project._id %>" class="btn btn-sm btn-outline-danger" role="button">Delete</a>
+    <button id="deleteBtn" data-project-id="<%= project._id %>" class="btn btn-sm btn-outline-danger" type="button">Delete</button>
   </td>
 </tr>
