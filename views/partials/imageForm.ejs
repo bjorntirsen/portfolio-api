@@ -1,23 +1,12 @@
 <div class="row text-center">
-  <h1>Edit Project Details:</h1>
+  <h2>Upload images</h2>
 </div>
 <div class="row pb-3">
-  <form class="form-project-data-update">
+  <form action="/update/<%= project._id %>" method="POST" novalidate class="form-project-images" enctype="multipart/form-data">
     <div class="col-md-6 mx-auto text-center">
-      <input hidden type="text" id="projectId" value="<%= project._id %>">
-      <div class="mb-3">
-        <label for="title" class="form-label text-capitalize">title</label>
-        <input type="text" class="form-control" id="title" value="<%= project.title %>">
-      </div>
-      <div class="mb-3">
-        <label for="subtitle" class="form-label text-capitalize">subtitle</label>
-        <input type="text" class="form-control" id="subtitle" value="<%= project.subtitle %>">
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-label text-capitalize">description</label>
-        <input type="text" class="form-control" id="description" value="<%= project.description %>">
-      </div>
-      <div class="mb-3">
+      <!-- <input hidden type="text" id="projectId" value="<%= project._id %>"> -->
+      <input type="file" name="image" id="" multiple>
+      <!-- <div class="mb-3">
         <label for="dateFirstCompleted" class="form-label text-capitalize">date First Completed</label>
         <input type="date" class="form-control" id="dateFirstCompleted" value="<%= project.dateFirstCompleted.toISOString().substring(0,10) %>">
       </div>
@@ -32,11 +21,10 @@
       <div class="mb-3">
         <label for="githubRepo" class="form-label text-capitalize">GitHub Repo</label>
         <input type="url" class="form-control" id="githubRepo" value="<%= project.githubRepo %>">
-      </div>
+      </div> -->
       <div class="justify-self-center">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </form>
-  <%- include ('./partials/imageForm.ejs', {project}) %>
 </div>

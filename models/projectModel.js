@@ -25,10 +25,6 @@ const projectSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'A project must have a date when it was first completed!'],
   },
-  image: {
-    type: String,
-    default: 'default.jpg',
-  },
   siteLink: {
     type: String,
     trim: true,
@@ -42,7 +38,9 @@ const projectSchema = new mongoose.Schema({
     trim: true,
   },
   slug: String,
-  images: [String],
+  imageCoverUrl: String,
+  imageCoverFilename: String,
+  images: [{ url: String, filename: String }],
   createdAt: {
     type: Date,
     default: Date.now(),

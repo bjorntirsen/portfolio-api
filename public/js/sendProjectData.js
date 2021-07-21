@@ -4,7 +4,7 @@ import { showAlert } from './alerts';
 
 export const sendProjectData = async (data) => {
   try {
-    const url = '/api/v1/projects';
+    const url = '/admin/projects';
 
     const res = await axios({
       method: 'POST',
@@ -23,7 +23,7 @@ export const sendProjectData = async (data) => {
 export const updateProjectData = async (data) => {
   try {
     const id = document.getElementById('projectId').value;
-    const url = `/api/v1/projects/${id}`;
+    const url = `/admin/projects/${id}`;
 
     const res = await axios({
       method: 'PATCH',
@@ -41,7 +41,7 @@ export const updateProjectData = async (data) => {
 
 export const deleteProject = async (id) => {
   try {
-    const url = `/api/v1/projects/${id}`;
+    const url = `/admin/projects/${id}`;
 
     await axios({
       method: 'DELETE',

@@ -1,0 +1,23 @@
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
+const Project = require('../models/projectModel');
+
+exports.renderAdminIndex = catchAsync(async (req, res) => {
+  const projects = await Project.find().sort('-dateFirstCompleted');
+
+  res.render('adminIndex', { title: 'Admin Start', projects });
+});
+
+exports.renderCreate = catchAsync(async (req, res) => {
+  res.render('create', { title: 'Add New Project' });
+});
+
+exports.renderUpdate = catchAsync(async (req, res, next) => {
+  const project = await Project.findById(req.params.id);
+
+  if (!project) {
+    return next(new AppError('No project found with that ID', 404));
+  }
+
+  res.render('update', { title: 'Update Project', project });
+});

@@ -8,6 +8,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const viewRouter = require('./routes/viewRoutes');
 const apiRouter = require('./routes/apiRoutes');
+const adminRouter = require('./routes/adminRoutes');
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use(cookieParser());
 //Routes
 app.use('/', viewRouter);
 app.use('/api/v1/', apiRouter);
+app.use('/admin/', adminRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server.`, 404));
