@@ -10,13 +10,14 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: 'new-folder',
-    format: async (req, file) => 'png', // supports promises as well
-    width: 500,
-    height: 500,
+    folder: 'bjorns-portfolio',
+    format: async () => 'jpeg',
+    width: 1125,
+    height: 750,
     crop: 'fill',
-    public_id: (req, file) => {
-      console.log(file);
+    gravity: 'north',
+    quality: 90,
+    public_id: (req) => {
       const customName = `project-${req.params.id}-${Date.now()}`;
       return customName;
     },

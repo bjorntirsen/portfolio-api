@@ -32,36 +32,6 @@ exports.updateProject = catchAsync(async (req, res, next) => {
   });
 });
 
-// upload.array('image'), (req, res) => {
-//   console.log(req.body, req.files);
-//   res.send('it worked');
-// }
-
-exports.saveImages = catchAsync(async (req, res, next) => {
-  const images = req.files.map((file) => ({
-    url: file.path,
-    filename: file.filename,
-  }));
-
-  const project = await Project.findByIdAndUpdate(req.params.id, images, {
-    new: true,
-    runValidators: true,
-  });
-
-  console.log(images);
-
-  if (!project) {
-    return next(new AppError('No project found with that ID', 404));
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      data: project,
-    },
-  });
-});
-
 exports.deleteProject = catchAsync(async (req, res, next) => {
   const project = await Project.findByIdAndDelete(req.params.id);
 

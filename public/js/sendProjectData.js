@@ -13,7 +13,7 @@ export const sendProjectData = async (data) => {
     });
 
     if (res.data.status === 'success') {
-      showAlert('success', 'Sucessfully added project!');
+      location.assign('/admin');
     }
   } catch (err) {
     console.error('error', err);
@@ -43,14 +43,14 @@ export const deleteProject = async (id) => {
   try {
     const url = `/admin/projects/${id}`;
 
-    await axios({
+    const res = await axios({
       method: 'DELETE',
       url,
     });
 
-    showAlert('success', 'Sucessfully deleted project!');
-    const el = document.getElementById(`row${id}`);
-    if (el) el.parentElement.removeChild(el);
+    if (res.data.status === 'success') {
+      location.reload();
+    }
   } catch (err) {
     console.error('error', err);
   }
