@@ -9,6 +9,7 @@ import {
   updateProjectData,
   deleteProject,
 } from './sendProjectData';
+import { sendCoverImage, sendProjectImages } from './sendImages';
 
 window.setTimeout(hideAlert, 3000);
 
@@ -19,6 +20,8 @@ const projectDataFormUpdate = document.querySelector(
 );
 const loginForm = document.querySelector('.form-login');
 const deleteBtn = document.getElementById('deleteBtn');
+const coverImageForm = document.querySelector('.form-project-cover');
+const projectImagesForm = document.querySelector('.form-project-images');
 
 // DELEGATION
 // 1) Create
@@ -51,6 +54,24 @@ if (loginForm)
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     login(email, password);
+  });
+
+if (coverImageForm)
+  coverImageForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (document.getElementById('image').files[0]) {
+      const form = new FormData();
+      form.append('image', document.getElementById('image').files[0]);
+      sendCoverImage(form);
+    } else showAlert('warning', 'Please select an image!', 5);
+  });
+
+if (projectImagesForm)
+  projectImagesForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = new FormData();
+    form.append('images', document.getElementById('images').files);
+    sendProjectImages(form);
   });
 
 //Highlight the active page in nav

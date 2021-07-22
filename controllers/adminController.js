@@ -21,3 +21,13 @@ exports.renderUpdate = catchAsync(async (req, res, next) => {
 
   res.render('update', { title: 'Update Project', project });
 });
+
+exports.renderEditImages = catchAsync(async (req, res, next) => {
+  const project = await Project.findById(req.params.id);
+
+  if (!project) {
+    return next(new AppError('No project found with that ID', 404));
+  }
+
+  res.render('editImages', { title: 'Edit Project Images', project });
+});

@@ -1,23 +1,22 @@
 const express = require('express');
-// const multer = require('multer');
-// const { storage } = require('../cloudinary');
 
-// const upload = multer({ storage });
 const projectController = require('../controllers/projectController');
-const authController = require('../controllers/authController');
+const imageController = require('../controllers/imageController');
 
-const router = express.Router({ mergeParams: true });
-
-router.use(authController.protect);
+const router = express.Router();
 
 router.post('/', projectController.createProject);
 
 router
-  .route('/id')
+  .route('/:id')
   .patch(projectController.updateProject)
   .delete(projectController.deleteProject);
 
-//router.post('/update/:id', upload.array('image'),upload.single('image'),
-//upload.array('images'), projectController.saveImages);
+router.post(
+  '/image/:id',
+  imageController.uploadSingle,
+  imageController.afterUpload
+);
+//router.post('/images/:id', imageController.updateProject);
 
 module.exports = router;

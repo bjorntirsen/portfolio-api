@@ -10,8 +10,16 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: 'portfolio-api',
-    allowedFormats: ['jpeg', 'png', 'jpg'],
+    folder: 'new-folder',
+    format: async (req, file) => 'png', // supports promises as well
+    width: 500,
+    height: 500,
+    crop: 'fill',
+    public_id: (req, file) => {
+      console.log(file);
+      const customName = `project-${req.params.id}-${Date.now()}`;
+      return customName;
+    },
   },
 });
 

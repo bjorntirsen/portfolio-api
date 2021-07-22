@@ -1,0 +1,50 @@
+<header class="row text-center">
+  <h1 class="my-4">Edit Project Images for <%= project.title %></h1>
+  <input hidden type="text" id="projectId" value="<%= project._id %>">
+</header>
+<section class="row">
+  <div class="col-sm-6">
+    <img
+    src="<%= project.imageCoverUrl %>"
+    class="img-fluid"
+    alt="<%= project.title %>"
+    />
+  </div>
+  <div class="col-sm-6">
+    <h3 class="text-center">Edit Cover Image</h3>
+    <form class="input-group mb-3 form-project-cover" enctype="multipart/form-data">
+      <input
+        class="form-control"
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+      />
+      <button class="btn btn-primary" type="submit">
+        Upload
+      </button>
+    </form>
+  </div>
+  
+</section>
+<section class="row">
+  <div class="col-sm-6">
+    <p>placeholder for images</p>
+  </div>
+  <div class="col-sm-6">
+    <h3 class="text-center">Edit Additional Images</h3>
+    <form class="input-group mb-3 form-project-images">
+      <input
+      class="form-control"
+      type="file"
+      id="images"
+      accept="image/*"
+      multiple
+      name="images"
+      />
+      <button class="btn btn-primary" type="submit">
+        Upload
+      </button>
+    </form>
+  </div>
+</section>

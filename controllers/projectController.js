@@ -4,35 +4,12 @@ const AppError = require('../utils/appError');
 const Project = require('../models/projectModel');
 
 exports.createProject = catchAsync(async (req, res, next) => {
-  let projectData = req.body;
-  let images = [];
-
-  if (req.files) {
-    images = req.files.map((file) => ({
-      url: file.path,
-      filename: file.filename,
-    }));
-    projectData = {
-      ...projectData,
-      images,
-    };
-  }
-
-  if (req.file) {
-    projectData = {
-      ...projectData,
-      imageCoverUrl: req.file.path,
-      imageCoverFilename: req.file.filename,
-    };
-  }
-
-  console.log(projectData);
-  //const project = await Project.create(req.body);
+  const project = await Project.create(req.body);
 
   res.status(201).json({
     status: 'success',
     data: {
-      data: projectData,
+      data: project,
     },
   });
 });
