@@ -31,6 +31,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
+    "express-rate-limit": "^5.3.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
     "morgan": "^1.10.0",
@@ -39,7 +40,8 @@
     "parcel": "^2.0.0-beta.3.1",
     "path": "^0.12.7",
     "slugify": "^1.6.0",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
     "eslint": "^7.30.0",
