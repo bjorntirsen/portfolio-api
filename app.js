@@ -1,8 +1,10 @@
 const path = require('path');
 const express = require('express');
+const csp = require('express-csp');
 const expressEjsLayout = require('express-ejs-layouts');
-const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const xss = require('xss-clean');
 const compression = require('compression');
@@ -13,6 +15,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const viewRouter = require('./routes/viewRoutes');
 const apiRouter = require('./routes/apiRoutes');
 const adminRouter = require('./routes/adminRoutes');
+const cspConfig = require('./cspConfig');
 
 const app = express();
 
@@ -23,6 +26,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(cors());
 app.options('*', cors());
+
+// Set security HTTP headers
+app.use(helmet());
+csp.extend(app, cspConfig);
 
 // Global Middleware
 app.use(expressEjsLayout);
