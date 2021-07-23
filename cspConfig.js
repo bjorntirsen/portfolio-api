@@ -14,6 +14,7 @@ module.exports = {
         'https://*.cloudflare.com/',
         'https://bundle.js:8828',
         'ws://localhost:56558/',
+        'https://cdn.jsdelivr.net/npm/bootstrap*',
       ],
       'frame-src': [
         'self',
