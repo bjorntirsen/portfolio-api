@@ -1,14 +1,15 @@
 const path = require('path');
 const express = require('express');
-const csp = require('express-csp');
-const expressEjsLayout = require('express-ejs-layouts');
+const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
+const csp = require('express-csp');
 const xss = require('xss-clean');
+const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
+const expressEjsLayout = require('express-ejs-layouts');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -24,6 +25,10 @@ app.enable('trust proxy');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Global Middleware
+// Serving static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(cors());
 app.options('*', cors());
 
@@ -31,15 +36,8 @@ app.options('*', cors());
 app.use(helmet());
 csp.extend(app, cspConfig);
 
-// Global Middleware
 app.use(expressEjsLayout);
-// Serving static files
-app.use(express.static(path.join(__dirname, 'public')));
-app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
-  console.log(`Request made at ${req.requestTime}`);
-  next();
-});
+
 // Dev logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
@@ -59,7 +57,16 @@ app.use(cookieParser());
 // Data sanitization against XSS
 app.use(xss());
 
+// Prevent param pollution
+app.use(hpp());
+
 app.use(compression());
+
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  console.log(`Request made at ${req.requestTime}`);
+  next();
+});
 
 //Routes
 app.use('/', viewRouter);
