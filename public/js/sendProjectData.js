@@ -48,9 +48,7 @@ export const deleteProject = async (id) => {
       url,
     });
 
-    if (res.data.status === 'success') {
-      location.reload();
-    }
+    location.reload();
   } catch (err) {
     console.error('error', err);
   }
