@@ -37,6 +37,7 @@ module.exports = {
         'https://*.cloudflare.com/',
         'https://bundle.js:*',
         'ws://localhost:*/',
+        'https://res.cloudinary.com/',
       ],
       'connect-src': [
         'self',
