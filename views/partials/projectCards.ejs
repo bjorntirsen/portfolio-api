@@ -23,7 +23,7 @@
         <% if (project.techniquesUsed) { %> 
           <%- include ('./techniquesUsedModal', {project}) %> 
         <% } %>
-        <% if (project.whatILearned) { %> 
+        <% if (project.whatILearned.length > 0) { %> 
           <%- include ('./whatILearnedModal', {project}) %> 
         <% } %>
         <% if (project.githubRepo) { %>
