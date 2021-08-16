@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
 const expressEjsLayout = require('express-ejs-layouts');
+const favicon = require('serve-favicon');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -28,6 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Global Middleware
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
 
 app.use(cors());
 app.options('*', cors());
