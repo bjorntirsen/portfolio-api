@@ -3,7 +3,11 @@ module.exports = {
     directives: {
       'default-src': ['self', 'blob:'],
       'style-src': ['self', 'unsafe-inline', 'https:'],
-      'font-src': ['self', 'https://fonts.gstatic.com'],
+      'font-src': [
+        'self',
+        'https://fonts.gstatic.com',
+        'https://ka-f.fontawesome.com/',
+      ],
       'script-src': [
         'self',
         'unsafe-inline',
@@ -15,6 +19,7 @@ module.exports = {
         'https://bundle.js:8828',
         'ws://localhost:56558/',
         'https://cdn.jsdelivr.net/',
+        'https://kit.fontawesome.com/',
       ],
       'frame-src': [
         'self',
@@ -50,6 +55,7 @@ module.exports = {
         'https://*.cloudflare.com/',
         'https://bundle.js:*',
         'ws://localhost:*/',
+        'https://ka-f.fontawesome.com/',
       ],
       'load-src': ['blob:'],
     },

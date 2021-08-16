@@ -4,8 +4,9 @@ const AppError = require('../utils/appError');
 const Project = require('../models/projectModel');
 
 exports.createProject = catchAsync(async (req, res, next) => {
+  console.log(req.body);
   const project = await Project.create(req.body);
-
+  console.log(project);
   res.status(201).json({
     status: 'success',
     data: {

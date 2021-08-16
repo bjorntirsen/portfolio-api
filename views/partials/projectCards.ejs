@@ -23,6 +23,9 @@
         <% if (project.techniquesUsed) { %> 
           <%- include ('./techniquesUsedModal', {project}) %> 
         <% } %>
+        <% if (project.whatILearned) { %> 
+          <%- include ('./whatILearnedModal', {project}) %> 
+        <% } %>
         <% if (project.githubRepo) { %>
           <a href="<%= project.githubRepo %>" class="btn btn-secondary m-1"
           >GitHub Repo</a

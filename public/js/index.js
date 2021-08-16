@@ -22,6 +22,7 @@ const loginForm = document.querySelector('.form-login');
 const deleteBtn = document.getElementById('deleteBtn');
 const coverImageForm = document.querySelector('.form-project-cover');
 const projectImagesForm = document.querySelector('.form-project-images');
+const addParagraphBtn = document.getElementById('additionalParagraph');
 
 // DELEGATION
 // 1) Create
@@ -46,6 +47,12 @@ if (deleteBtn)
     e.target.textContent = 'Processing...';
     const { projectId } = e.target.dataset;
     deleteProject(projectId);
+  });
+
+if (addParagraphBtn)
+  addParagraphBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('Add paragraph was clicked!');
   });
 
 if (loginForm)

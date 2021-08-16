@@ -7,6 +7,7 @@ export const getProjectData = () => {
     dateFirstCompleted: document.getElementById('dateFirstCompleted').value,
     siteLink: document.getElementById('siteLink').value,
     techniquesUsed: document.getElementById('techniquesUsed').value,
+    whatILearned: [{ paragraph: document.getElementById('paragraph').value, icons: document.getElementById('icons').value.split(', ') }],
     githubRepo: document.getElementById('githubRepo').value,
   };
   return data;
