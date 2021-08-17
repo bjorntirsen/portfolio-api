@@ -19,7 +19,10 @@ exports.renderProjectDetails = catchAsync(async (req, res, next) => {
     return next(new AppError('No project found with that ID', 404));
   }
 
-  res.render('project', { title: `${project.name} Project`, project });
+  res.render('project', {
+    title: `${project.name} Project`,
+    project,
+  });
 });
 
 exports.renderLogin = catchAsync(async (req, res) => {

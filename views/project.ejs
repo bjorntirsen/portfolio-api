@@ -8,14 +8,30 @@
       class="card-img-top"
       alt="<%= project.title %>"
     />
-    <div class="card-body">
+    <div class="card-body text-center">
       <h5 class="card-title text-uppercase"><%= project.title %></h5>
       <h6 class="card-title text-uppercase"><%= project.subtitle %></h6>
       <% if (project.description) { %>
       <p class="card-text"><%= project.description %></p>
       <% } %>
-      <% if (project.techniquesUsed) { %> 
-        <p><%= project.techniquesUsed %> </p> 
+      <% if (project.whatILearned) { %> 
+        <div class="align-items-center d-flex flex-column">
+          <h6 class="card-title text-uppercase">what i learned:</h6>
+          <% project.whatILearned.forEach((section) => { %>
+            <div class="align-items-center d-flex">
+              <% section.icons.forEach((icon) => { %>
+                <%if (icon.startsWith('fa')) { %>
+                  <i class="fa-3x <%= icon %> m-1" title="<%= icon %>"></i>
+                <% } else { %>
+                  <span class="emoji m-1"><%= icon %></span>
+                <% } %>
+              <% }) %>
+            </div>
+            <p class="text-center">
+              <%= section.paragraph %>
+            </p>
+          <% }) %>
+        </div>
       <% } %>
       <% if (project.siteLink) { %>
       <a href="<%= project.siteLink %>" class="btn btn-primary m-1">Link To Site</a>
