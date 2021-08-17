@@ -20,9 +20,9 @@ const projectDataFormUpdate = document.querySelector(
 );
 const loginForm = document.querySelector('.form-login');
 const deleteBtn = document.getElementById('deleteBtn');
+const testingBtn = document.getElementById('testingBtn');
 const coverImageForm = document.querySelector('.form-project-cover');
 const projectImagesForm = document.querySelector('.form-project-images');
-const addParagraphBtn = document.getElementById('additionalParagraph');
 
 // DELEGATION
 // 1) Create
@@ -49,11 +49,28 @@ if (deleteBtn)
     deleteProject(projectId);
   });
 
-if (addParagraphBtn)
-  addParagraphBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    console.log('Add paragraph was clicked!');
-  });
+// if (testingBtn)
+  // testingBtn.addEventListener('click', (e) => {
+  //   const whatILearned = () => {
+  //     let whatILearnedArray = [];
+  //     const iconArrays = document.getElementsByName('icons');
+  //     const paragraphs = document.getElementsByName('paragraph');
+  //     iconArrays.forEach((array) => {
+  //       if (array.value !== '') {
+  //         let obj = { icons: array.value };
+  //         whatILearnedArray.push(obj);
+  //       }
+  //     });
+  //     paragraphs.forEach((paragraph, index) => {
+  //       if (paragraph.value !== '') {
+  //         whatILearnedArray[index].paragraph = paragraph.value;
+  //       }
+  //     });
+  //     return whatILearnedArray;
+  //   };
+  //   const array = whatILearned();
+  //   console.log(array);
+  // });
 
 if (loginForm)
   loginForm.addEventListener('submit', (e) => {

@@ -27,7 +27,11 @@
         <% project.whatILearned.forEach((section) => { %>
           <div class="align-items-center d-flex">
             <% section.icons.forEach((icon) => { %>
-              <i class="fa-3x <%= icon %> m-1"></i>
+              <%if (icon.startsWith('fa')) { %>
+                <i class="fa-3x <%= icon %> m-1"></i>
+              <% } else { %>
+                <span class="emoji m-1"><%= icon %></span>
+              <% } %>
             <% }) %>
           </div>
           <p class="text-center">

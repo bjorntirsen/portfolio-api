@@ -1,5 +1,24 @@
 /* eslint-disable */
 export const getProjectData = () => {
+  const getWhatILearnedArray = () => {
+    let whatILearnedArray = [];
+    const iconArrays = document.getElementsByName('icons');
+    const paragraphs = document.getElementsByName('paragraph');
+    iconArrays.forEach((array) => {
+      if (array.value !== '') {
+        const splitArray = array.value.split(', ');
+        let obj = { icons: splitArray };
+        whatILearnedArray.push(obj);
+      }
+    });
+    paragraphs.forEach((paragraph, index) => {
+      if (paragraph.value !== '') {
+        whatILearnedArray[index].paragraph = paragraph.value;
+      }
+    });
+    return whatILearnedArray;
+  };
+
   const data = {
     title: document.getElementById('title').value,
     subtitle: document.getElementById('subtitle').value,
@@ -7,7 +26,7 @@ export const getProjectData = () => {
     dateFirstCompleted: document.getElementById('dateFirstCompleted').value,
     siteLink: document.getElementById('siteLink').value,
     techniquesUsed: document.getElementById('techniquesUsed').value,
-    whatILearned: [{ paragraph: document.getElementById('paragraph').value, icons: document.getElementById('icons').value.split(', ') }],
+    whatILearned: getWhatILearnedArray(),
     githubRepo: document.getElementById('githubRepo').value,
   };
   return data;
