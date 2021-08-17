@@ -28,7 +28,7 @@
           <div class="align-items-center d-flex">
             <% section.icons.forEach((icon) => { %>
               <%if (icon.startsWith('fa')) { %>
-                <i class="fa-3x <%= icon %> m-1"></i>
+                <i class="fa-3x <%= icon %> m-1" title="<%= icon %>"></i>
               <% } else { %>
                 <span class="emoji m-1"><%= icon %></span>
               <% } %>

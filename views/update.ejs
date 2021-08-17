@@ -1,8 +1,8 @@
-<div class="row text-center">
+<div class="row text-center pb-3">
   <h1>Edit Project Details:</h1>
 </div>
-<div class="row pb-3">
-  <form class="form-project-data-update">
+<form class="form-project-data-update">
+  <div class="row pb-3">
     <div class="col-md-6 mx-auto text-center">
       <input hidden type="text" id="projectId" value="<%= project._id %>">
       <div class="mb-3">
@@ -33,9 +33,33 @@
         <label for="githubRepo" class="form-label text-capitalize">GitHub Repo</label>
         <input type="url" class="form-control" id="githubRepo" value="<%= project.githubRepo %>">
       </div>
-      <div class="justify-self-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="col-md-6 mx-auto text-center">
+      <div class="mb-3">
+        <h2 class="text-capitalize fs-4 text-muted">what i learned:</h2>
+        <label for="icons" class="form-label text-capitalize">icons (separate by ", " font awesome or emoji)</label>
+        <input type="text" class="form-control" name="icons" value="<%= whatILearned.icons1 %>">
+        <label for="paragraph" class="form-label text-capitalize">paragraph</label>
+        <textarea type="text" class="form-control" name="paragraph" rows="3" cols="50"><%= whatILearned.para1 %></textarea>
+        <label for="icons" class="form-label text-capitalize">icons</label>
+        <input type="text" class="form-control" name="icons" value="<%= whatILearned.icons2 %>">
+        <label for="paragraph" class="form-label text-capitalize">paragraph</label>
+        <textarea type="text" class="form-control" name="paragraph" rows="3" cols="50"><%= whatILearned.para2 %></textarea>
+        <label for="icons" class="form-label text-capitalize">icons</label>
+        <input type="text" class="form-control" name="icons" value="<%= whatILearned.icons3 %>">
+        <label for="paragraph" class="form-label text-capitalize">paragraph</label>
+        <textarea type="text" class="form-control" name="paragraph" rows="3" cols="50"><%= whatILearned.para3 %></textarea>
+        <label for="icons" class="form-label text-capitalize">icons</label>
+        <input type="text" class="form-control" name="icons" value="<%= whatILearned.icons4 %>">
+        <label for="paragraph" class="form-label text-capitalize">paragraph</label>
+        <textarea type="text" class="form-control" name="paragraph" rows="3" cols="50"><%= whatILearned.para4 %></textarea>
       </div>
     </div>
-  </form>
+  </div>
+  <div class="row pb-3 mx-auto text-center">
+    <div class="justify-self-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
 </div>
+</form>
