@@ -15,7 +15,7 @@
       </div>
       <div class="mb-3">
         <label for="description" class="form-label text-capitalize">description</label>
-        <input type="text" class="form-control" id="description" value="<%= project.description %>">
+        <textarea type="text" class="form-control" id="description" rows="3" cols="50"><%= project.description %></textarea>
       </div>
       <div class="mb-3">
         <label for="dateFirstCompleted" class="form-label text-capitalize">date First Completed</label>
@@ -24,10 +24,6 @@
       <div class="mb-3">
         <label for="siteLink" class="form-label text-capitalize">site Link</label>
         <input type="url" class="form-control" id="siteLink" value="<%= project.siteLink %>">
-      </div>
-      <div class="mb-3">
-        <label for="techniquesUsed" class="form-label text-capitalize">techniques Used</label>
-        <input type="text" class="form-control" id="techniquesUsed" value="<%= project.techniquesUsed %>">
       </div>
       <div class="mb-3">
         <label for="githubRepo" class="form-label text-capitalize">GitHub Repo</label>

@@ -25,7 +25,6 @@ export const getProjectData = () => {
     description: document.getElementById('description').value,
     dateFirstCompleted: document.getElementById('dateFirstCompleted').value,
     siteLink: document.getElementById('siteLink').value,
-    techniquesUsed: document.getElementById('techniquesUsed').value,
     whatILearned: getWhatILearnedArray(),
     githubRepo: document.getElementById('githubRepo').value,
   };

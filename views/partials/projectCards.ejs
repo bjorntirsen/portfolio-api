@@ -20,9 +20,6 @@
         <% if (project.siteLink) { %>
         <a href="<%= project.siteLink %>" class="btn btn-primary m-1">Link To Site</a>
         <% } %>
-        <% if (project.techniquesUsed) { %> 
-          <%- include ('./techniquesUsedModal', {project}) %> 
-        <% } %>
         <% if (project.whatILearned.length > 0) { %> 
           <%- include ('./whatILearnedModal', {project}) %> 
         <% } %>
