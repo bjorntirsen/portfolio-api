@@ -1,4 +1,5 @@
 const Project = require('../models/projectModel');
+const Presentation = require('../models/presentationModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const APIFeatures = require('../utils/apiFeatures');
@@ -33,6 +34,23 @@ exports.getProject = catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       data: project,
+    },
+  });
+});
+
+exports.getPresentation = catchAsync(async (req, res, next) => {
+  const presentation = await Presentation.findById(
+    '6124a70233f1b261d16eb2ca'
+  ).select('presentation -_id');
+
+  if (!presentation) {
+    return next(new AppError('No presentation found with that ID', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      data: presentation,
     },
   });
 });

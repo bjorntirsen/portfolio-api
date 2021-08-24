@@ -7,4 +7,6 @@ router.get('/projects', apiController.getAllProjects);
 
 router.get('/projects/:id', apiController.getProject);
 
+router.get('/presentation', apiController.getPresentation);
+
 module.exports = router;
