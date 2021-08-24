@@ -3,6 +3,7 @@ const express = require('express');
 const adminController = require('../controllers/adminController');
 const authController = require('../controllers/authController');
 const projectsRouter = require('./projectRoutes');
+const presentaionRouter = require('./presentationRoutes');
 
 const router = express.Router();
 
@@ -13,6 +14,8 @@ router.get('/', adminController.renderAdminIndex);
 router.get('/create', adminController.renderCreate);
 router.get('/update/:id', adminController.renderUpdate);
 router.get('/images/:id', adminController.renderEditImages);
+
+router.use('/presentation', presentaionRouter);
 
 router.use('/projects', projectsRouter);
 

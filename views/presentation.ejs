@@ -1,0 +1,22 @@
+<div class="row text-center pb-3">
+  <h1>Edit Presentation:</h1>
+</div>
+<form class="form-presentation-update">
+  <div class="row pb-3">
+    <div class="col-md-6 mx-auto text-center">
+      <h2 class="text-capitalize fs-4 text-muted">Presentation:</h2>
+      <div id="presentationContainer">
+        <% presentation.presentation.forEach((section) => { %>
+          <div class="mb-3">
+            <textarea type="text" class="form-control" name="paragraph" rows="4" cols="50"><%= section %></textarea>
+          </div>
+        <% }) %>
+      </div>
+      <div class="justify-self-center">
+        <button type="button" class="btn btn-secondary" id="addParagraphBtn">Add Paragraph</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

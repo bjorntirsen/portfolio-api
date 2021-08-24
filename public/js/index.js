@@ -9,6 +9,11 @@ import {
   updateProjectData,
   deleteProject,
 } from './sendProjectData';
+import {
+  getPresentationData,
+  updatePresentationData,
+  addParagraph,
+} from './updatePresentation';
 import { sendCoverImage, sendProjectImages } from './sendImages';
 
 window.setTimeout(hideAlert, 3000);
@@ -18,8 +23,12 @@ const projectDataForm = document.querySelector('.form-project-data');
 const projectDataFormUpdate = document.querySelector(
   '.form-project-data-update'
 );
+const presentationFormUpdate = document.querySelector(
+  '.form-presentation-update'
+);
 const loginForm = document.querySelector('.form-login');
 const deleteBtn = document.getElementById('deleteBtn');
+const addParagraphBtn = document.getElementById('addParagraphBtn');
 const coverImageForm = document.querySelector('.form-project-cover');
 const projectImagesForm = document.querySelector('.form-project-images');
 
@@ -40,12 +49,25 @@ if (projectDataFormUpdate)
     updateProjectData(data);
   });
 
+if (presentationFormUpdate)
+  presentationFormUpdate.addEventListener('submit', (e) => {
+    e.preventDefault();
+    data = getPresentationData();
+    updatePresentationData(data);
+  });
+
 // 3) Delete
 if (deleteBtn)
   deleteBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
     const { projectId } = e.target.dataset;
     deleteProject(projectId);
+  });
+
+if (addParagraphBtn)
+  addParagraphBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    addParagraph();
   });
 
 if (loginForm)
