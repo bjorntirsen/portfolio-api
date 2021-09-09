@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from 'axios';
-import { showAlert } from './alerts';
+//import { showAlert } from './alerts';
 
 export const sendCoverImage = async (data) => {
   try {
@@ -23,7 +23,8 @@ export const sendCoverImage = async (data) => {
 
 export const sendProjectImages = async (data) => {
   try {
-    const url = '/admin/projects';
+    const id = document.getElementById('projectId').value;
+    const url = `/admin/projects/images/${id}`;
 
     const res = await axios({
       method: 'POST',

@@ -45,7 +45,7 @@ const projectSchema = new mongoose.Schema({
       'https://res.cloudinary.com/bjorntirsen/image/upload/v1626975858/new-folder/project-60f9ae56f15f647b3e73beb3-1626975857278.png',
   },
   imageCoverFilename: String,
-  images: [{ url: String, filename: String }],
+  images: [String],
   createdAt: {
     type: Date,
     default: Date.now(),

@@ -87,13 +87,17 @@ if (coverImageForm)
       sendCoverImage(form);
     } else showAlert('warning', 'Please select an image!', 5);
   });
-
+  
+// TODO: console log the images 
+// and find out how to correctly add them to the form
 if (projectImagesForm)
   projectImagesForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const form = new FormData();
-    form.append('images', document.getElementById('images').files);
-    sendProjectImages(form);
+    if (document.getElementById('images').files[0]) {
+      const form = new FormData();
+      form.append('images', document.getElementById('images').files);
+      sendProjectImages(form);
+    } else showAlert('warning', 'Please select at least one image!', 5);
   });
 
 //Highlight the active page in nav

@@ -7,7 +7,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET,
 });
 
-const storage = new CloudinaryStorage({
+const coverImageStorage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: 'bjorns-portfolio',
@@ -24,7 +24,24 @@ const storage = new CloudinaryStorage({
   },
 });
 
+const imagesStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'bjorns-portfolio-images',
+    format: async () => 'jpeg',
+    width: 400,
+    height: 400,
+    crop: 'fill',
+    quality: 90,
+    public_id: (req) => {
+      const customName = `project-${req.params.id}-${Date.now()}`;
+      return customName;
+    },
+  },
+});
+
 module.exports = {
   cloudinary,
-  storage,
+  coverImageStorage,
+  imagesStorage,
 };

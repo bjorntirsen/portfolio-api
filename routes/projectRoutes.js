@@ -15,7 +15,13 @@ router
 router.post(
   '/image/:id',
   imageController.uploadSingle,
-  imageController.afterUpload
+  imageController.afterSingleUpload
+);
+
+router.post(
+  '/images/:id',
+  imageController.uploadMultiple,
+  imageController.afterMultipleUpload
 );
 //router.post('/images/:id', imageController.updateProject);
 
