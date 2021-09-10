@@ -29,8 +29,8 @@ const imagesStorage = new CloudinaryStorage({
   params: {
     folder: 'bjorns-portfolio-images',
     format: async () => 'jpeg',
-    width: 400,
-    height: 400,
+    width: 1920,
+    height: 1080,
     crop: 'fill',
     quality: 90,
     public_id: (req) => {
