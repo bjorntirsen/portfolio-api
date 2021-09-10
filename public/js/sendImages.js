@@ -28,6 +28,7 @@ export const sendProjectImages = async (data) => {
 
     const res = await axios({
       method: 'POST',
+      headers: {'Content-Type': 'multipart/form-data'},
       url,
       data,
     });

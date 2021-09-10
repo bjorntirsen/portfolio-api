@@ -82,20 +82,23 @@ if (coverImageForm)
   coverImageForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (document.getElementById('image').files[0]) {
+      document.getElementById('cover-img-submit').textContent = 'Processing...';
       const form = new FormData();
       form.append('image', document.getElementById('image').files[0]);
       sendCoverImage(form);
     } else showAlert('warning', 'Please select an image!', 5);
   });
-  
-// TODO: console log the images 
-// and find out how to correctly add them to the form
+
 if (projectImagesForm)
   projectImagesForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const images = document.getElementById('images');
     if (document.getElementById('images').files[0]) {
+      document.getElementById('images-submit').textContent = 'Processing...';
       const form = new FormData();
-      form.append('images', document.getElementById('images').files);
+      Array.from(images.files).forEach((image) => {
+        form.append('images', image);
+      });
       sendProjectImages(form);
     } else showAlert('warning', 'Please select at least one image!', 5);
   });

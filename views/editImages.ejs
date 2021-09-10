@@ -3,6 +3,7 @@
   <input hidden type="text" id="projectId" value="<%= project._id %>">
 </header>
 <section class="row">
+  <h2 class="text-center">Cover Image:</h2>
   <div class="col-sm-6">
     <img
     src="<%= project.imageCoverUrl %>"
@@ -11,7 +12,7 @@
     />
   </div>
   <div class="col-sm-6">
-    <h3 class="text-center">Edit Cover Image</h3>
+    <h3 class="text-center fs-5 text-muted">Edit Cover Image</h3>
     <form class="input-group mb-3 form-project-cover" enctype="multipart/form-data">
       <input
         class="form-control"
@@ -20,7 +21,7 @@
         name="image"
         accept="image/*"
       />
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-primary" type="submit" id="cover-img-submit">
         Upload
       </button>
     </form>
@@ -28,11 +29,25 @@
   
 </section>
 <section class="row">
+  <h2 class="text-center">Additional Images:</h2>
   <div class="col-sm-6">
-    <p>placeholder for images</p>
+    <!-- TODO: fix diplay of images -->
+    <% if (project.images.length > 0) { %>
+      <% project.images.forEach(image => { %>
+        <div class="mx-auto">
+        <img
+          src="<%= image %>"
+          class="img-fluid"
+          alt="<%= project.title %>"
+        />
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No images yet</p>
+    <% } %>
   </div>
   <div class="col-sm-6">
-    <h3 class="text-center">Edit Additional Images</h3>
+    <h3 class="text-center fs-5 text-muted">Edit Additional Images</h3>
     <form class="input-group mb-3 form-project-images">
       <input
       class="form-control"
@@ -42,7 +57,7 @@
       multiple
       name="images"
       />
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-primary" type="submit" id="images-submit">
         Upload
       </button>
     </form>
