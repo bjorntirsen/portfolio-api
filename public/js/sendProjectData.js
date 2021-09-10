@@ -38,18 +38,3 @@ export const updateProjectData = async (data) => {
     console.error('error', err);
   }
 };
-
-export const deleteProject = async (id) => {
-  try {
-    const url = `/admin/projects/${id}`;
-
-    const res = await axios({
-      method: 'DELETE',
-      url,
-    });
-
-    location.reload();
-  } catch (err) {
-    console.error('error', err);
-  }
-};

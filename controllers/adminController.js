@@ -27,6 +27,18 @@ exports.renderUpdate = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.deleteProjectAndReload = catchAsync(async (req, res, next) => {
+  const project = await Project.findByIdAndDelete(req.params.id);
+
+  if (!project) {
+    return next(new AppError('No document found with that ID', 404));
+  }
+
+  const projects = await Project.find().sort('-dateFirstCompleted');
+
+  res.render('adminIndex', { title: 'Admin Start', projects });
+});
+
 exports.renderEditImages = catchAsync(async (req, res, next) => {
   const project = await Project.findById(req.params.id);
 

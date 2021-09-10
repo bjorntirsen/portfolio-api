@@ -1,14 +1,8 @@
 /* eslint-disable */
-import axios from 'axios';
-
 import { login } from './login';
 import { showAlert, hideAlert } from './alerts';
 import { getProjectData } from './getProjectData';
-import {
-  sendProjectData,
-  updateProjectData,
-  deleteProject,
-} from './sendProjectData';
+import { sendProjectData, updateProjectData } from './sendProjectData';
 import {
   getPresentationData,
   updatePresentationData,
@@ -27,7 +21,7 @@ const presentationFormUpdate = document.querySelector(
   '.form-presentation-update'
 );
 const loginForm = document.querySelector('.form-login');
-const deleteBtn = document.getElementById('deleteBtn');
+const deleteBtns = document.querySelectorAll('a.deleteBtn');
 const addParagraphBtn = document.getElementById('addParagraphBtn');
 const coverImageForm = document.querySelector('.form-project-cover');
 const projectImagesForm = document.querySelector('.form-project-images');
@@ -57,11 +51,11 @@ if (presentationFormUpdate)
   });
 
 // 3) Delete
-if (deleteBtn)
-  deleteBtn.addEventListener('click', (e) => {
-    e.target.textContent = 'Processing...';
-    const { projectId } = e.target.dataset;
-    deleteProject(projectId);
+if (deleteBtns)
+  deleteBtns.forEach((delBtn) => {
+    delBtn.addEventListener('click', (e) => {
+      e.target.textContent = 'Processing...';
+    });
   });
 
 if (addParagraphBtn)

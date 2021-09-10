@@ -13,6 +13,7 @@ router.use(authController.protect);
 router.get('/', adminController.renderAdminIndex);
 router.get('/create', adminController.renderCreate);
 router.get('/update/:id', adminController.renderUpdate);
+router.get('/delete/:id', adminController.deleteProjectAndReload);
 router.get('/images/:id', adminController.renderEditImages);
 
 router.use('/presentation', presentaionRouter);
