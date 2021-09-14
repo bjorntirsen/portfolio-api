@@ -11,7 +11,7 @@ const projectSchema = new mongoose.Schema({
       40,
       'A project title must have less or equal than 40 characters',
     ],
-    minlength: [5, 'A project title must have more or equal than 5 characters'],
+    minlength: [4, 'A project title must have more or equal than 4 characters'],
   },
   subtitle: {
     type: String,
