@@ -9,4 +9,6 @@ router.get('/projects/:id', apiController.getProject);
 
 router.get('/presentation', apiController.getPresentation);
 
+router.get('/testdata', apiController.getPresentation);
+
 module.exports = router;

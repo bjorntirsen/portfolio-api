@@ -1,0 +1,197 @@
+{
+  "_links": {
+    "self": {
+      "href": "/tron/public/ui/configurations/v1/sitemap/sitemap?rev=119928&lang=sv&targetGroups=OFFICE"
+    }
+  },
+  "viewNotFound": "errors/pagenotfound",
+  "defaultSurfaceId": "privat",
+  "views": [
+    {
+      "id": "privat",
+      "_links": {
+        "help": {
+          "href": "/tron/public/info/help/v1/view/0-0-0?targetGroups=OFFICE"
+        },
+        "canonical": { "href": "https://www.handelsbanken.se/sv/" }
+      },
+      "heading": "En personlig bank som tar lokala beslut",
+      "headingVisible": false,
+      "breadcrumb": "Privat",
+      "meta": {
+        "search": {
+          "description": "Vi på Handelsbanken har hjälpt generationer att ta kloka beslut kring sin ekonomi. Vi finns här, nära dig i din vardag.",
+          "exclude": false
+        },
+        "favorite": { "exclude": true }
+      },
+      "sections": [
+        {
+          "width": "1",
+          "modules": [
+            {
+              "type": "shb-alert-module",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/alerts/v1/alert/32-21232?targetGroups=OFFICE"
+                }
+              }
+            },
+            {
+              "type": "shb-hero-white-left",
+              "_embedded": {
+                "config": {
+                  "label": "",
+                  "heading": "Få ännu bättre koll på din ekonomi",
+                  "tagline": "Tjänsten Min ekonomi hjälper dig att få en samlad bild av dina utgifter, inkomster och sparande. ",
+                  "isImageDark": false,
+                  "image": {
+                    "src": "/tron/public/info/contents/v1/image/32-120991?variantId=1800&targetGroups=OFFICE",
+                    "alt": "a woman sitting by a table looking at her mobile",
+                    "width": "1800",
+                    "height": "436",
+                    "smallDeviceImage": {
+                      "src": "/tron/public/info/contents/v1/image/32-120992?targetGroups=OFFICE",
+                      "alt": "a woman sitting by a table looking at her mobile",
+                      "width": "550",
+                      "height": "360"
+                    },
+                    "variants": [
+                      {
+                        "src": "/tron/public/info/contents/v1/image/32-120991?targetGroups=OFFICE",
+                        "alt": "a woman sitting by a table looking at her mobile",
+                        "width": "1900",
+                        "height": "460"
+                      },
+                      {
+                        "src": "/tron/public/info/contents/v1/image/32-120991?variantId=1200&targetGroups=OFFICE",
+                        "alt": "a woman sitting by a table looking at her mobile",
+                        "width": "1200",
+                        "height": "291"
+                      },
+                      {
+                        "src": "/tron/public/info/contents/v1/image/32-120991?variantId=900&targetGroups=OFFICE",
+                        "alt": "a woman sitting by a table looking at her mobile",
+                        "width": "900",
+                        "height": "218"
+                      },
+                      {
+                        "src": "/tron/public/info/contents/v1/image/32-120991?variantId=700&targetGroups=OFFICE",
+                        "alt": "a woman sitting by a table looking at her mobile",
+                        "width": "700",
+                        "height": "169"
+                      },
+                      {
+                        "src": "/tron/public/info/contents/v1/image/32-120991?variantId=500&targetGroups=OFFICE",
+                        "alt": "a woman sitting by a table looking at her mobile",
+                        "width": "500",
+                        "height": "121"
+                      },
+                      {
+                        "src": "/tron/public/info/contents/v1/image/32-120991?variantId=300&targetGroups=OFFICE",
+                        "alt": "a woman sitting by a table looking at her mobile",
+                        "width": "300",
+                        "height": "73"
+                      }
+                    ]
+                  },
+                  "navigations": [
+                    {
+                      "url": "privat/digitala-tjanster/mobilappen",
+                      "linkText": "Mer om appen"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "shb-article-3",
+              "id": "110209",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/contents/v1/component/32-110209?templateId=32-3565-32&targetGroups=OFFICE"
+                }
+              }
+            },
+            { "type": "shb-line", "id": "shb-line", "width": "1" },
+            {
+              "segmentation": {
+                "agreements": [],
+                "has": ["OFFICE"],
+                "hasNot": [],
+                "featuresHas": [],
+                "featuresHasNot": []
+              },
+              "type": "shb-my-branch-information-small",
+              "id": "42980",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/contents/v1/component/32-42980?templateId=32-25468-32&targetGroups=OFFICE"
+                }
+              }
+            },
+            {
+              "type": "shb-article-2-1",
+              "id": "108680",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/contents/v1/component/32-108680?templateId=32-3621-32&targetGroups=OFFICE"
+                }
+              }
+            },
+            { "type": "shb-line", "id": "shb-line", "width": "1" },
+            {
+              "type": "shb-article-1-2",
+              "id": "116314",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/contents/v1/component/32-116314?templateId=32-3613-32&targetGroups=OFFICE"
+                }
+              }
+            },
+            { "type": "shb-line", "id": "shb-line", "width": "1" },
+            {
+              "type": "shb-article-50",
+              "id": "114528",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/contents/v1/component/32-114528?templateId=32-3552-32&targetGroups=OFFICE"
+                }
+              }
+            },
+            { "type": "shb-line", "id": "shb-line", "width": "1" },
+            {
+              "type": "shb-article-3",
+              "id": "107709",
+              "width": "1",
+              "_links": {
+                "config": {
+                  "href": "/tron/public/info/contents/v1/component/32-107709?templateId=32-3565-32&targetGroups=OFFICE"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "views": []
+    }
+  ],
+  "experiments": [
+    {
+      "originalId": "privat/lan/bolan",
+      "experimentId": "qZFcSf-nTeGRXCokfNtT2Q",
+      "variants": ["pagenotfound"]
+    },
+    {
+      "originalId": "privat/pension",
+      "experimentId": "0",
+      "variants": ["pagenotfound"]
+    }
+  ]
+}

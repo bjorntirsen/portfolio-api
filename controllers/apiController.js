@@ -3,6 +3,7 @@ const Presentation = require('../models/presentationModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const APIFeatures = require('../utils/apiFeatures');
+const test_data = require('../test-data/sitemap_homepage.json')
 
 exports.getAllProjects = catchAsync(async (req, res, next) => {
   const filter = {};
@@ -51,6 +52,21 @@ exports.getPresentation = catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       data: presentation,
+    },
+  });
+});
+
+exports.getTestData = catchAsync(async (req, res, next) => {
+  const testData = test_data;
+
+  if (!testData) {
+    return next(new AppError('No test data found with that ID', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      data: testData,
     },
   });
 });
